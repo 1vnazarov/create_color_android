@@ -27,8 +27,10 @@ class MainActivity : AppCompatActivity() {
         val dialog = Dialog(this)
         dialogBinding = DialogColorPickerBinding.inflate(layoutInflater)
         dialog.setContentView(dialogBinding.root)
-
-        dialogBinding.red.addTextChangedListener(object : TextWatcher {
+        dialog.setOnDismissListener{
+            updateColorPreview()
+        }
+        /*dialogBinding.red.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {}
-        })
+        })*/
 
         dialog.show()
     }
