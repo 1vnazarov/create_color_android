@@ -1,5 +1,6 @@
 package com.example.create_color.nazarovia
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.graphics.Color
 import android.os.Bundle
@@ -24,12 +25,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialog() {
-        val dialog = Dialog(this)
         dialogBinding = DialogColorPickerBinding.inflate(layoutInflater)
-        dialog.setContentView(dialogBinding.root)
-        dialog.setOnDismissListener{
+        val dialog = AlertDialog.Builder(this).setTitle("Создай цвет!").setView(dialogBinding.root).setOnDismissListener{
             updateColorPreview()
-        }
+        }.setPositiveButton("OK") {_, _ -> updateColorPreview()}
         /*dialogBinding.red.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
