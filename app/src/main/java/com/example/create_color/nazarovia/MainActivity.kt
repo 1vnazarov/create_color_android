@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                     if (!(validate(dialogBinding.red) && validate(dialogBinding.green) && validate(dialogBinding.blue)))
                         return@setOnClickListener
                     updateColorPreview()
+                    dialog.dismiss()
                 }
             }
 
